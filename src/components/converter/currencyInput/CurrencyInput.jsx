@@ -17,6 +17,13 @@ export default memo(({ useInput, useCurrency }) => {
         "&:first-of-type": { mb: "1rem" },
         height: 200,
         backgroundColor: theme.palette.bg.dark,
+        boxShadow: `
+          2px 2px 2.2px rgba(0, 0, 0, 0.017),
+          6.5px 6.5px 5.3px rgba(0, 0, 0, 0.025),
+          14.2px 14.2px 10px rgba(0, 0, 0, 0.029),
+          26.8px 26.8px 17.9px rgba(0, 0, 0, 0.035),
+          48.3px 48.3px 33.4px rgba(0, 0, 0, 0.044),
+          100px 100px 80px rgba(0, 0, 0, 0.06)`,
         "&:hover": {
           opacity: 0.9,
         },
