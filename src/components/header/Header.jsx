@@ -12,7 +12,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import { memo } from "react";
 import { useRequest } from "../../async/requestContext";
-import { Loader } from "../../loader/Loader";
+import { Loader } from "../loader/Loader";
 
 export default memo(() => {
   const { rates, isLoading } = useRequest();

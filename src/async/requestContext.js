@@ -5,23 +5,24 @@ const RequestContext = createContext(null);
 const RequestProvider = ({ children }) => {
   const [rates, setRates] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const fetchData = async (url) => {
     try {
       setLoading(true);
-      const { data } = await axios.get(url, {
+      const res = await axios.get(url, {
         headers: { apikey: "X4d8gJoU22uQZBk84NAnDbx1kQIdckdG" },
       });
-      setRates(data.rates);
+      setRates(res.data.rates);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      setError(error);
       setLoading(false);
     }
   };
 
   return (
-    <RequestContext.Provider value={{ rates, isLoading, fetchData }}>
+    <RequestContext.Provider value={{ rates, isLoading, fetchData, error }}>
       {children}
     </RequestContext.Provider>
   );
